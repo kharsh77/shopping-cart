@@ -9,6 +9,7 @@ import { ProductServiceService } from '../../service/product-service.service';
 })
 export class ProductComponentComponent implements OnInit {
   products: Product[] = [];
+  cartProduct: Product[] = [];
 
   constructor(private productServiceService: ProductServiceService) { }
 
@@ -16,11 +17,19 @@ export class ProductComponentComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts(): void{
+  getProducts(): void {
     this.products = this.productServiceService.getProducts();
-  };
-
-  addproduct(product: Product): void{
   }
 
+  addProduct(product: Product): void {
+    const isAdded = this.cartProduct.filter(h => h === product).length === 0;
+
+    if (isAdded) {
+      this.cartProduct.push(product);
+    }
+  }
+
+  removeCartProduct(product: Product): void {
+    this.cartProduct = this.cartProduct.filter(h => h !== product);
+  }
 }

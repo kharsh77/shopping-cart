@@ -15,11 +15,12 @@ export class CartComponentComponent implements OnInit {
   ngOnInit() {
   }
 
-  showProduct(){
-    console.log("products", this.cartProducts);
-  }
+  // showProduct(){
+  //   console.log("products", this.cartProducts);
+  // }
 
   // addProduct(product: Product): void{
+  //   console.log("cart", product);
   //   this.cartProducts.push(product);
   //   console.log("cart", this.cartProducts);
   // };
